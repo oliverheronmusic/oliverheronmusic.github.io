@@ -8,7 +8,14 @@ const oliver = document.querySelector(".o");
 const profile = document.querySelector(".profile");
 const content = document.querySelector(".content");
 
+const audio = document.querySelector("audio");
 const player = document.querySelector(".player");
+const playButton = document.querySelector(".play-button");
+const volumeButton = document.querySelector(".volume-button");
+const time = document.querySelector("#time");
+const volume = document.querySelector("#volume");
+const currentTime = document.querySelector(".current-time");
+const totalTime = document.querySelector(".total-time");
 
 let selectedPage = null;
 
@@ -75,5 +82,61 @@ function openPlayer() {
     player.classList.add("visible");
 }
 
+function calculateTime(secs) {
+    const minutes = Math.floor(secs / 60);
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${minutes}:${returnedSeconds}`;
+}
+
+function setDuration() {
+    totalTime.innerHTML = calculateTime(audio.duration);
+    time.max = Math.floor(audio.duration);
+}
+
+audio.addEventListener("timeupdate", () => {
+    currentTime.innerHTML = calculateTime(audio.currentTime);
+    time.value = Math.floor(audio.currentTime);
+});
+
+time.addEventListener("input", () => {
+    currentTime.innerHTML = calculateTime(time.value);
+    audio.currentTime = time.value;
+});
+
+volume.addEventListener("input", () => {
+    audio.volume = volume.value / 100;
+});
+
+playButton.addEventListener('click', () => {
+    if (playButton.classList.contains('playing')) {
+        audio.pause();
+        playButton.classList.remove('playing');
+    } else {
+        audio.play();
+        playButton.classList.add('playing');
+    }
+});
+
+volumeButton.addEventListener('click', () => {
+    if (volumeButton.classList.contains('muted')) {
+        audio.muted = false;
+        volumeButton.classList.remove('muted');
+    } else {
+        audio.muted = true;
+        volumeButton.classList.add('muted');
+    }
+});
+
+if (audio.readyState > 0) {
+    setDuration();
+} else {
+    audio.addEventListener('loadedmetadata', () => {
+        setDuration();
+    });
+}
+
 window.addEventListener("scroll", onScroll);
 onScroll();
+
+audio.volume = volume.value / 100;

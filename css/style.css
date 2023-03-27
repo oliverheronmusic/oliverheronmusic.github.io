@@ -568,6 +568,19 @@ input[type="range"]::-ms-track {
     background-image: url(../images/voloff.png);
 }
 
+.current-time {
+    color: #ffffff;
+    font-size: 0.8rem;
+    width: 20px;
+}
+
+.total-time {
+    color: #ffffff;
+    font-size: 0.8rem;
+    margin-right: 10px;
+    width: 20px;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
