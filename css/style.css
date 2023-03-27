@@ -221,6 +221,16 @@ html, body {
     box-shadow: 0 1px 10px #000000b9 inset;
 }
 
+.fill {
+    width: 100%;
+    height: calc(100% - 2px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .subtitle {
     position: absolute;
     top: 0;
@@ -238,23 +248,22 @@ html, body {
 }
 
 .o {
-    position: absolute;
-    right: 0;
-    bottom: 0;
     width: 60%;
     height: 100%;
     background-image: url(../images/1.png);
-    filter: grayscale(30%) brightness(80%) contrast(130%);
+    filter: grayscale(30%) brightness(80%) contrast(110%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     z-index: 2;
-    opacity: 0.5;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 600ms ease-in-out;
+}
+
+.o.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .about {
@@ -283,6 +292,14 @@ html, body {
     z-index: 2;
     margin-right: -50px;
     border: 10px solid #f7f7f7;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 600ms ease-in-out;
+}
+
+.profile.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .content {
@@ -294,6 +311,14 @@ html, body {
     z-index: 1;
     border-radius: 10px 0 10px 0;
     text-align: right;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 600ms ease-in-out;
+}
+
+.content.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .content h1 {
@@ -422,6 +447,127 @@ html, body {
     background: linear-gradient(180deg, #ffffff 0%, #ffffff00 100%);
 }
 
+.player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #000000cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 600ms ease-in-out;
+    gap: 20px;
+}
+
+.player.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 20%;
+    height: 5px;
+    background: #808080;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#volume {
+    width: 10%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px #ffffff52;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px #ffffff52;
+}
+
+input[type="range"]::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px #ffffff52;
+}
+
+input[type="range"]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    box-shadow: 0 0 0 1px #ffffff52;
+}
+
+.play-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(../images/play.png);
+    filter: invert(100%);
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #23203185;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 10px #00000052;
+    transition: background-color 0.5s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.play-button.playing {
+    background-image: url(../images/pause.png);
+}
+
+.volume-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(../images/volon.png);
+    filter: invert(100%);
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #23203185;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 10px #00000052;
+    transition: background-color 0.5s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.volume-button.muted {
+    background-image: url(../images/voloff.png);
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -530,6 +676,10 @@ html, body {
 
     .hamburger {
         display: block;
+    }
+
+    .o {
+        width: 90%;
     }
 }
 

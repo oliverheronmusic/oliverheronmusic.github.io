@@ -3,7 +3,14 @@ const sections = document.querySelectorAll(".section");
 const hamburger = document.querySelector(".hamburger input");
 const menu = document.querySelector(".menu");
 
-let selectedPage = navButtons[0].innerHTML.toLowerCase();
+const oliver = document.querySelector(".o");
+
+const profile = document.querySelector(".profile");
+const content = document.querySelector(".content");
+
+const player = document.querySelector(".player");
+
+let selectedPage = null;
 
 function onSelect() {
     if (menu.classList.contains("show")) {
@@ -16,13 +23,18 @@ function onScroll() {
     let scrollPosition = window.scrollY;
     let middle = sections[1].offsetTop - 100;
     let bottom = document.body.scrollHeight - window.innerHeight;
+    let newSelectedPage = "";
     if (bottom - scrollPosition <= 200) {
-        selectedPage = navButtons[2].innerHTML.toLowerCase();
+        newSelectedPage = navButtons[2].innerHTML.toLowerCase();
     } else if (scrollPosition < middle - 100) {
-        selectedPage = navButtons[0].innerHTML.toLowerCase();
+        newSelectedPage = navButtons[0].innerHTML.toLowerCase();
     }
     else {
-        selectedPage = navButtons[1].innerHTML.toLowerCase();
+        newSelectedPage = navButtons[1].innerHTML.toLowerCase();
+    }
+    if (newSelectedPage != selectedPage) {
+        selectedPage = newSelectedPage;
+        triggerAnimation(newSelectedPage);
     }
     navButtons.forEach(button => {
         button.classList.remove("selected");
@@ -34,6 +46,23 @@ function onScroll() {
     });
 }
 
+function triggerAnimation(newSelectedPage) {
+    if (newSelectedPage == "home") {
+        oliver.classList.add("visible");
+        profile.classList.remove("visible");
+        content.classList.remove("visible");
+    }
+    else if (newSelectedPage == "about") {
+        oliver.classList.remove("visible");
+        profile.classList.add("visible");
+        content.classList.add("visible");
+    } else {
+        oliver.classList.remove("visible");
+        profile.classList.remove("visible");
+        content.classList.remove("visible");
+    }
+}
+
 function toggleMenu() {
     if (hamburger.checked) {
         menu.classList.add("show");
@@ -42,18 +71,9 @@ function toggleMenu() {
     }
 }
 
-
-window.onload = function() {
-    let url = window.location.href;
-    let extension = url.substring(url.lastIndexOf("#") + 1);
-    if (extension) {
-        selectedPage = extension;
-    }
-    navButtons.forEach(button => {
-        if (button.innerHTML.toLowerCase() == selectedPage) {
-            button.classList.add("selected");
-        }
-    });
+function openPlayer() {
+    player.classList.add("visible");
 }
 
 window.addEventListener("scroll", onScroll);
+onScroll();
