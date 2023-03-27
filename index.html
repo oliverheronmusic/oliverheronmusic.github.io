@@ -1,0 +1,83 @@
+<!-- Boilerplate html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Oliver Heron's music website">
+    <meta name="keywords" content="music, piano, composer, performer, improviser, jazz, classical, contemporary, songwriter, producer, arranger, recording artist, recording engineer, mixing engineer, mastering engineer, music production, music technology, music technology student, music technology graduate">
+    <meta name="author" content="Oliver Heron">
+    <meta name="robots" content="index, follow">
+    <title>Oliver Heron</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Create a navbar that will be used on all pages. Pages include: Home, Music. Use a logo text saying "Oliver Heron" and a hamburger menu for mobile. Divs will be used to create the navbar. -->
+    <div class="navbar" style="color: #ffffff;">
+        <div class="logo">OLIVER HERON</div>
+        <div class="menu">
+            <ul>
+                <li><a class="nav-button" onclick="onSelect()" href="#home">Home</a></li>
+                <li><a class="nav-button" onclick="onSelect()" href="#about">About</a></li>
+                <li><a class="nav-button" onclick="onSelect()" href="#contact">Contact</a></li>
+                <li><a class="nav-button" onclick="onSelect()" href="music.html">Music</a></li>
+            </ul>
+        </div>
+        <div class="listen">
+            <button class="listen-button">Listen</button>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <!--
+            A fake / hidden checkbox is used as click reciever,
+            so you can use the :checked selector on it.
+            -->
+            <input type="checkbox" />
+            
+            <!--
+            Some spans to act as a hamburger.
+            
+            They are acting like a real hamburger,
+            not that McDonalds stuff.
+            -->
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="home" class="section">
+        <div class="container">
+            <div class="main">
+                <div class="subtitle">PIANIST • COMPOSER • IMPROVISER</div>
+                <div class="o"></div>
+            </div>
+        </div>
+        <div id="about" class="white-to-transparent-gradient-down section"></div>
+    </div>
+    <div class="about">
+        <div class="profile"></div>
+        <div class="content">
+            <h1>About</h1>
+            <p>Oliver Heron is a composer, performer, improviser, songwriter, producer, arranger, recording artist, recording engineer, mixing engineer, mastering engineer, music production, music technology student and graduate.</p>
+            <p>He is currently studying for a BA (Hons) in Music Technology at the University of Huddersfield.</p>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="white-to-transparent-gradient-up"></div>
+        <div id="contact" class="section"></div>
+        <div class="details">
+            <div class="contact-text">CONTACT</div>
+            <div class="contact-info">I'm always happy to hear from you. If you have any questions, please feel free to contact me using the details below.</div>
+            <div class="social-icons">
+                <a class="social-icon" href="https://instagram.com/oliver.heron1" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+                <a class="social-icon" href="https://soundcloud.com/ohjazz" target="_blank"><img src="images/soundcloud.png" alt="Soundcloud"></a>
+                <a class="social-icon" href="https://bandcamp.com/oliverheron123" target="_blank"><img src="images/bandcamp.png" alt="Bandcamp"></a>
+                <a class="social-icon" href="mailto:ollieheron@icloud.com" target="_blank"><img src="images/email.png" alt="Email"></a>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</html>
