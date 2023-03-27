@@ -80,6 +80,7 @@ function toggleMenu() {
 
 function openPlayer() {
     player.classList.add("visible");
+    playButton.click();
 }
 
 function calculateTime(secs) {
