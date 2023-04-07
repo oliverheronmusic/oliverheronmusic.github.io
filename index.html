@@ -12,73 +12,31 @@
     <title>Oliver Heron</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/player.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Create a navbar that will be used on all pages. Pages include: Home, Music. Use a logo text saying "Oliver Heron" and a hamburger menu for mobile. Divs will be used to create the navbar. -->
-    <div class="navbar" style="color: #ffffff;">
-        <div class="logo">OLIVER HERON</div>
-        <div class="menu">
-            <ul>
-                <li><a class="nav-button" onclick="onSelect()" href="#home">Home</a></li>
-                <li><a class="nav-button" onclick="onSelect()" href="#about">About</a></li>
-                <li><a class="nav-button" onclick="onSelect()" href="#contact">Contact</a></li>
-                <li><a class="nav-button" onclick="onSelect()" href="music.html">Music</a></li>
-            </ul>
+    <div class="background"></div>
+    <div class="navbar">
+        <div class="title">Oliver Heron</div>
+    </div>
+    <div class="player visible">
+        <div class="controls play-controls">
+            <div class="play-button"></div>
+            <div class="current-time">0:00</div>
+            <input id="time" type="range" value="0">
+            <div class="total-time">1:00</div>
         </div>
-        <div class="listen">
-            <button class="listen-button" onclick="openPlayer()">Listen</button>
+        <div class="controls info-controls">
+            <div id="track-name" class="track-info">Hello world, this is a test name for the track!</div>
         </div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="controls ">
+            <div class="volume-button"></div>
+            <input id="volume" type="range" value="100">
         </div>
     </div>
-    <div id="home" class="section">
-        <div class="container">
-            <div class="main">
-                <div class="subtitle">PIANIST • COMPOSER • IMPROVISER</div>
-                <div class="fill">
-                    <div class="o"></div>
-                </div>
-            </div>
-        </div>
-        <div id="about" class="white-to-transparent-gradient-down section"></div>
-    </div>
-    <div class="about">
-        <div class="profile"></div>
-        <div class="content">
-            <h1>About</h1>
-            <p>Oliver Heron is a composer, performer, improviser, songwriter, producer, arranger, recording artist, recording engineer, mixing engineer, mastering engineer, music production, music technology student and graduate.</p>
-            <p></p>
-        </div>
-    </div>
-    <div class="contact">
-        <div class="white-to-transparent-gradient-up"></div>
-        <div id="contact" class="section"></div>
-        <div class="details">
-            <div class="contact-text">CONTACT</div>
-            <div class="contact-info">I'm always happy to hear from you. If you have any questions, please feel free to contact me using the details below.</div>
-            <div class="social-icons">
-                <a class="social-icon" href="https://instagram.com/ollie.heron" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
-                <a class="social-icon" href="https://soundcloud.com/ohjazz" target="_blank"><img src="images/soundcloud.png" alt="Soundcloud"></a>
-                <a class="social-icon" href="https://bandcamp.com/oliverheron123" target="_blank"><img src="images/bandcamp.png" alt="Bandcamp"></a>
-                <a class="social-icon" href="mailto:ollieheron@icloud.com" target="_blank"><img src="images/email.png" alt="Email"></a>
-            </div>
-        </div>
-    </div>
-    <div class="player">
-        <div class="play-button"></div>
-        <div class="current-time">0:00</div>
-        <input id="time" type="range" value="0">
-        <div class="total-time">1:00</div>
-        <div class="volume-button"></div>
-        <input id="volume" type="range" value="100">
-    </div>
-    <audio src="music/infant eyes solo.mp3" preload="metadata" loop></audio>
-    <script src="js/index.js"></script>
+    <audio src="music/Infant Eyes Solo.mp3" preload="metadata"></audio>
+    <script src="js/player.js"></script>
 </html>

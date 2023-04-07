@@ -1,0 +1,98 @@
+/* Note to self. Ranges suck. */
+
+input[type="range"] {
+    appearance: none;
+    height: 5px;
+    background: #808080;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: calc(-100vw + 1px) 0 0 100vw #e543f7;
+    margin-top: -2.5px;
+}
+
+input[type="range"]:hover {
+    overflow: visible;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: none;
+    background: #cfcfcf;
+    transition: background .2s;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #cfcfcf;
+}
+
+input[type="rang"]::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    margin: 0;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    color: #13bba4;
+    margin-top: -1px;
+  }
+
+input[type="range"]::-ms-track {
+    width: 100%;
+    background: transparent;
+    border: none;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: #e543f7; 
+}
+
+input[type="range"]::-moz-range-track {  
+    background-color: #808080;
+}
+
+input[type="range"]::-ms-fill-lower {
+    background-color: #e543f7; 
+}
+
+input[type="range"]::-ms-fill-upper {  
+    background-color: #808080;
+}
+
+@media screen and (max-width: 768px) {
+    
+    input[type="range"] {
+        overflow: visible;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        box-shadow: none;
+        background: #cfcfcf;
+    }
+}
