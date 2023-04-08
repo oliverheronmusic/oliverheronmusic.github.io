@@ -35,7 +35,6 @@ let setCurrentTime = (time) => {
 }
 
 let setSliderTime = (time) => {
-    console.log(time)
     timeSlider.value = Math.floor(time);
 }
 
@@ -45,7 +44,7 @@ let setTotalTime = (time) => {
 }
 
 let setTrack = (name) => {
-    trackName.innerText = decodeURI(name.split("/").pop().split(".")[0]) + " Bob Bob Bob Bob";
+    trackName.innerText = decodeURI(name.split("/").pop().split(".")[0]);
 }
 
 let calculateExtent = (w, pw) => {
@@ -64,6 +63,7 @@ let setTrackMarquee = () => {
 
 let setupPlayer = () => {
     setTrack(audio.src);
+    setCurrentTime(0);
     setTotalTime(audio.duration);
     volumeSlider.value = getStoredVolume();
     setAudioVolume(volumeSlider.value);
@@ -111,6 +111,9 @@ playButton.addEventListener('click', togglePlay)
 
 volumeButton.addEventListener('click', toggleMute)
 
+window.addEventListener("resize", setTrackMarquee)
+window.addEventListener("load", setTrackMarquee)
+
 if (audio.readyState > 0) {
     setupPlayer();
 } else {
@@ -118,6 +121,3 @@ if (audio.readyState > 0) {
         setupPlayer();
     })
 }
-
-window.addEventListener("resize", setTrackMarquee)
-window.addEventListener("load", setTrackMarquee)

@@ -20,7 +20,8 @@
                 transform 600ms ease-in-out;
     gap: 20px;
     flex-wrap: wrap;
-    padding: 15px 20px
+    padding: 15px 20px;
+    z-index: 2;
 }
 
 .player.visible {
