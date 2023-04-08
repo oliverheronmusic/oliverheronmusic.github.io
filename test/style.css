@@ -4,7 +4,7 @@
 
 html {
     scroll-snap-type: both mandatory;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 html, body {
@@ -14,13 +14,12 @@ html, body {
 }
 
 .horizontal {
-    width: calc(300vw - var(--offset) * 3);
     display: flex;
     flex-direction: row;
 }
 
 .block {
-    height: calc(100vh - var(--offset));
+    height: 100vh;
     width: calc(100vw - var(--offset));
     display: flex;
     flex-direction: column;
