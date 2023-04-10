@@ -111,16 +111,23 @@
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        padding-bottom: 120px;
+    }
+
+    .player {
+        flex-direction: column-reverse;
+    }
+
     .controls.volume-controls {
-        flex: 0.5;
+        display: none;
     }
 
     .controls.info-controls {
-        flex: 0.5;
+        width: 100%;
     }
 
     .controls.play-controls {
-        flex: 1;
-        flex-basis: 100%;
+        width: 100%;
     }
 }
