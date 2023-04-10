@@ -1,16 +1,16 @@
-const backgrounds = document.querySelectorAll('.background');
+const boxes = document.querySelectorAll('.box');
 
-setActive = (background, active) => {
+setActive = (box, active) => {
   if (active) {
-    background.classList.add('active');
+    box.classList.add('active');
   } else {
-    background.classList.remove('active');
+    box.classList.remove('active');
   }
 };
 
 window.addEventListener('scroll', () => {
   if (window.innerWidth > 768) return;
-  backgrounds.forEach((background) => {
-    setActive(background, background.getBoundingClientRect().top < window.innerHeight / 3 && background.getBoundingClientRect().bottom > window.innerHeight / 3);
+  boxes.forEach((box) => {
+    setActive(box, box.getBoundingClientRect().top < window.innerHeight / 3 && box.getBoundingClientRect().bottom > window.innerHeight / 3);
   });
 });

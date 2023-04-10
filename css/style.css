@@ -231,9 +231,13 @@ p > span.fancy-text {
         font-size: 1rem;
     }
 
-    .background.active {
+    .box.active > .background {
         filter: contrast(0.8) blur(1px);
         transform: scale(1);
+    }
+
+    .box.active > .border {
+        border: #ffffffb3 15px solid;
     }
     
     .front {
