@@ -232,7 +232,12 @@ p > span.fancy-text {
     }
 
     .background {
-        filter: contrast(0.8) blur(1px);
+        transition: filter 0.5s ease,
+                    transform 0.5s ease;
+    }
+
+    .background.active {
+        filter: contrast(0.8) grayscale(0);
         transform: scale(1);
     }
     
