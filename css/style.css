@@ -1,6 +1,17 @@
+@import url('../fonts/fonts.css');
+
 html,
 body {
     scroll-behavior: smooth;
+    background-color: #000;
+}
+
+body {
+    padding: 20px 20px 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
 }
 
 * {
@@ -10,41 +21,289 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.background {
-    background: url(../images/barbican.jpg) no-repeat center center fixed;
-    background-size: cover;
-    background-color: #d4f6ff;
-    background-blend-mode: multiply;
-    filter: contrast(0.8) brightness(1.2);
-    height: 100vh;
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
-    position: relative;
+    gap: 20px;
 }
 
-.navbar {
-    position: fixed;
+.box {
+    position: relative;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    width: 50%;
+    height: 375px;
+    overflow: hidden;
+}
+
+.box:has(.title) {
+    cursor: pointer;
+}
+
+.box.wide {
+    width: 100%;
+}
+
+.box.fit {
+    height: max-content;
+}
+
+.box.text {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.background {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    padding: 40px 80px;
-    z-index: 1;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    flex: 1;
+    opacity: 0.7;
+    transition: filter 0.5s ease,
+                transform 0.5s ease;
+    transform: scale(1.02);
+    filter: contrast(1) blur(0) grayscale(0.8);
+}
+
+.background.logo {
+    background-image: url(../images/barbican2.jpg);
+}
+
+.background.profile {
+    background-image: url(../images/back.jpg);
+}
+
+.background.music {
+    background-image: url(../images/music.jpg);
+}
+
+.front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/front.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    flex: 1;
+    filter: grayscale(0.6);
+    transition: filter 0.5s ease;
 }
 
 .title {
-    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    font-size: 18vw;
+    font-weight: 200;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    letter-spacing: -3px;
     mix-blend-mode: difference;
-    font-size: 3rem;
-    font-weight: 300;
-    letter-spacing: 5px;
-    text-shadow: 1px 1px 2px #00000098;
+    color: #ffe7e7;
+    text-shadow: 1px 1px 5px #79797979;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: color 0.5s ease,
+                opacity 0.5s ease;
 }
 
-@media screen and (max-width: 768px) {
-    .navbar {
-        padding: 20px 40px;
+.border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: #9f9f9f 10px solid;
+    mix-blend-mode: hard-light;
+    transition: border 0.5s ease,
+                opacity 0.5s ease;
+}
+
+.box:hover > .title {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.box:hover > .border {
+    border: #ffffffb3 15px solid;
+}
+
+.box:hover > .background {
+    filter: contrast(0.8) blur(1px);
+    transform: scale(1);
+}
+
+.box:hover > .front {
+    filter: grayscale(0);
+}
+
+.box > p {
+    color: #fff;
+    word-spacing: 5px;
+    font-weight: 300;
+    font-size: 1.7rem;
+}
+
+.box > h1 {
+    user-select: none;
+}
+
+.box > h1 > span {
+    position: relative;
+    top: 0;
+    color: #cbcbcb;
+    font-family: 'Playfair Display', serif;
+    font-weight: 100;
+    font-size: 2rem;
+    transition: color 0.5s ease,
+                top 0.5s ease;
+    user-select: none;
+}
+
+.box > h1 > span:hover {
+    color: #ffffff;
+    top: -5px;
+}
+
+p > span.fancy-text {
+    font-size: 2rem;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+}
+
+@media screen and (max-width: 1200px) {
+    .title {
+        font-size: 20vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .title {
+        font-size: 17vw;
+    }
+
+    .box > p {
+        font-size: 1.2rem;
+    }
+
+    .box {
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width: 729px) {
+    .title {
+        color: #ffffff;
+        font-size: 34vw;
+        opacity: 1;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .box.text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box > p {
+        font-size: 1rem;
+    }
+
+    .background {
+        filter: contrast(0.8) blur(1px);
+        transform: scale(1);
+    }
+    
+    .front {
+        filter: grayscale(0);
+    }
+
+    .box > h1 > span {
+        animation: hop 1.2s ease-in-out;
+    }
+
+    .box > h1 > span:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .box > h1 > span:nth-child(2) {
+        animation-delay: .1s;
+    }
+
+    .box > h1 > span:nth-child(3) {
+        animation-delay: .2s;
+    }
+
+    .box > h1 > span:nth-child(4) {
+        animation-delay: .3s;
+    }
+
+    .box > h1 > span:nth-child(5) {
+        animation-delay: .4s;
+    }
+
+    .box > h1 > span:nth-child(6) {
+        animation-delay: .5s;
+    }
+
+    .box > h1 > span:nth-child(7) {
+        animation-delay: .6s;
+    }
+
+    .box > h1 > span:nth-child(8) {
+        animation-delay: .7s;
+    }
+
+    .box > h1 > span:nth-child(9) {
+        animation-delay: .8s;
+    }
+
+    .box > h1 > span:nth-child(10) {
+        animation-delay: .9s;
+    }
+
+    .box > h1 > span:nth-child(11) {
+        animation-delay: 1s;
+    }
+
+    .box > h1 > span:nth-child(12) {
+        animation-delay: 1.1s;
+    }
+}
+
+@keyframes hop {
+    0%, 40% {
+        color: #cbcbcb;
+        top: 0;
+    }
+    50% {
+        color: #ffffff;
+        top: -5px;
+    }
+    60%, 100% {
+        color: #cbcbcb;
+        top: 0;
     }
 }
