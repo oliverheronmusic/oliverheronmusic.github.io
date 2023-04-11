@@ -234,10 +234,6 @@ body {
   .box > p {
       font-size: 1.2rem;
   }
-
-  .box {
-      height: 30vh;
-  }
 }
 
 @keyframes hop {

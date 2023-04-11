@@ -33,7 +33,13 @@
 }
 
 .box {
+  height: 30vh;
+  min-height: 300px;
   width: 100%;
+}
+
+.box.fit {
+  min-height: 0;
 }
 
 .box.text {
