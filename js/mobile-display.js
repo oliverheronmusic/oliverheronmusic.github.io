@@ -18,4 +18,13 @@ scrolled = () => {
 }
 
 window.addEventListener('scroll', scrolled);
-scrolled();
+window.addEventListener('resize', scrolled);
+window.addEventListener('load', () => {
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'css/mobile.css';
+    document.head.appendChild(link);
+  }
+  scrolled();
+});
