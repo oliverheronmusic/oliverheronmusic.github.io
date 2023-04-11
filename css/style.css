@@ -55,6 +55,10 @@ body {
     color: #8aace4;
 }
 
+.icons-row > a:nth-child(5) > i:hover {
+    color: #d4cab2;
+}
+
 .box {
     color: #fff;
     position: relative;
@@ -62,7 +66,7 @@ body {
     justify-content: stretch;
     align-items: center;
     width: 50%;
-    height: 375px;
+    height: 350px;
     overflow: hidden;
 }
 
@@ -265,6 +269,10 @@ body {
     
     .icons-row.active > a:nth-child(4) > i {
         color: #8aace4;
+    }
+
+    .icons-row.active > a:nth-child(5) > i {
+        color: #d4cab2;
     }
 
     .box {
