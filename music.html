@@ -9,8 +9,9 @@
     <meta name="keywords" content="music, piano, composer, performer, improviser, jazz, classical, contemporary, songwriter, producer, arranger, recording artist, recording engineer, mixing engineer, mastering engineer, music production, music technology, music technology student, music technology graduate">
     <meta name="author" content="Oliver Heron">
     <meta name="robots" content="index, follow">
-    <title>Oliver Heron</title>
+    <title>Oliver Heron - Music</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/player.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,40 +20,8 @@
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="box wide fit text">
+        <a href="index.html"  class="box wide fit text">
             <h1><span>O</span><span>l</span><span>i</span><span>v</span><span>e</span><span>r</span><span>&nbsp;</span><span>H</span><span>e</span><span>r</span><span>o</span><span>n</span></h1>
-        </a>
-    </div>
-    <div class="container">
-        <a href="about.html" class="box">
-            <div class="background profile"></div>
-            <div class="front"></div>
-            <div class="title">ABOUT</div>
-            <div class="border"></div>
-        </a>
-        <a href="media.html" class="box">
-            <div class="background photos"></div>
-            <div class="title">MEDIA</div>
-            <div class="border"></div>
-        </a>
-    </div>
-    <div class="container">
-        <a href="music.html" class="box wide">
-            <div class="background music"></div>
-            <div class="title">MUSIC</div>
-            <div class="border"></div>
-        </a>
-    </div>
-    <div class="container">
-        <a href="news.html" class="box">
-            <div class="background news"></div>
-            <div class="title">NEWS</div>
-            <div class="border"></div>
-        </a>
-        <a href="scores.html" class="box">
-            <div class="background sheet"></div>
-            <div class="title">SCORES</div>
-            <div class="border"></div>
         </a>
     </div>
     <div class="icons-row">
@@ -61,6 +30,21 @@
         <a title="Bandcamp" href="https://bandcamp.com/oliverheron123"><i class="fa fa-bandcamp" aria-hidden="true"></i></a>
         <a title="Messenger" href="http://m.me/oliver.heron.9"><i class="fa fa-facebook-messenger" aria-hidden="true"></i></a>
         <a title="Email" href="mailto:ollieheron@icloud.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    </div>
+    <div class="player visible">
+        <div class="controls play-controls">
+            <div class="play-button"></div>
+            <div class="current-time">0:00</div>
+            <input id="time" type="range" value="0">
+            <div class="total-time">1:00</div>
+        </div>
+        <div class="controls info-controls">
+            <div id="track-name" class="track-info">Hello world, this is a test name for the track!</div>
+        </div>
+        <div class="controls volume-controls">
+            <div class="volume-button"></div>
+            <input id="volume" type="range" value="100">
+        </div>
     </div>
     <audio src="music/Infant Eyes Solo - Oliver Heron.mp3" preload="metadata"></audio>
     <script src="js/player.js"></script>

@@ -1,5 +1,11 @@
+@import url('./range.css');
+
 :root {
     --extent: 60%;
+}
+
+body {
+  padding: 20px 20px 90px !important;
 }
 
 .player {
