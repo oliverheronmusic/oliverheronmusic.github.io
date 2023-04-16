@@ -61,13 +61,7 @@
   .image-list {
     flex-direction: column;
   }
-
-  .image-list > img {
-    height: max-content;
-    pointer-events: none;
-    cursor: default;
-  }
-
+  
   .image-container > img {
     max-width: 95%;
     border: 10px solid #fff;
