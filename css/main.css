@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
 }
 
 html,
@@ -68,7 +69,6 @@ body {
   width: 50%;
   height: 350px;
   overflow: hidden;
-  text-decoration: none;
 }
 
 .box:has(.title) {
@@ -198,11 +198,11 @@ body {
   font-size: 1.3rem;
 }
 
-.box > h1 {
+.box > a > h1 {
   user-select: none;
 }
 
-.box > h1 > span {
+.box > a > h1 > span {
   color: #d6d6d6;
   font-family: 'Playfair Display', serif;
   font-weight: 100;
@@ -211,7 +211,7 @@ body {
               top 0.5s ease;
 }
 
-.box > h1 > span:hover {
+.box > a > h1 > span:hover {
   color: #ffffff;
 }
 
