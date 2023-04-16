@@ -1,7 +1,6 @@
 .title {
   color: #ffffff;
   font-size: 27vw;
-  opacity: 1;
 }
 
 .container {
@@ -51,6 +50,10 @@
 
 .box > p {
   font-size: 1rem;
+}
+
+.box.active > .title {
+  opacity: 1;
 }
 
 .box.active > .background {

@@ -12,7 +12,11 @@ setActive = (box, active) => {
 scrolled = () => {
   if (window.innerWidth > 768) return;
   boxes.forEach((box) => {
-    setActive(box, box.getBoundingClientRect().top < window.innerHeight / 3 + 100 && box.getBoundingClientRect().bottom > window.innerHeight / 3 + 50);
+    const scrollTop = window.scrollY;
+    const scrollBottom = scrollTop + window.innerHeight;
+    const boxTop = box.getBoundingClientRect().top + scrollTop;
+    const boxBottom = boxTop + box.getBoundingClientRect().height;
+    setActive(box, boxTop < scrollBottom - box.offsetHeight && boxBottom > scrollTop + box.offsetHeight);
   });
   setActive(icons[0], window.innerHeight + window.scrollY >= document.body.offsetHeight - 10);
 }
