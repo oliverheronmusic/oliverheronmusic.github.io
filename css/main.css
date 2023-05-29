@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
+  color-scheme: dark;
 }
 
 html,
@@ -83,9 +84,55 @@ body {
   height: max-content;
 }
 
+.box.visible {
+  overflow: visible;
+}
+
 .box.text {
   flex-direction: column;
   align-items: flex-start;
+}
+
+.box.text > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box.text > ul > li > a {
+  color: #c3c0ff;
+}
+
+.box.text > ul > li > a:visited {
+  color: #8e8ebc;
+}
+
+.big-title {
+  font-size: 2rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.straight {
+  color: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drop-summary {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 3px;
+}
+
+.drop-title {
+  font-size: 1.3rem;
+  text-decoration: underline;
+  margin: 10px;
 }
 
 .background {
