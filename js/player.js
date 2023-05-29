@@ -79,12 +79,23 @@ let _adjustSetting = (s, c, on, off) => {
     }
 }
 
+let _forceSetting = (s, c, a) => {
+    s.classList.add(c);
+    a()
+}
+
 let togglePlay = () => {
     _adjustSetting(playButton, 'playing', () => audio.play(), () => audio.pause())
 }
 
 let toggleMute = () => {
     _adjustSetting(volumeButton, 'muted', () => audio.muted = true, () => audio.muted = false)
+}
+
+let resetAndPlay = () => {
+    setSliderTime(0);
+    setCurrentTime(0);
+    _forceSetting(playButton, 'playing', () => audio.play())
 }
 
 audio.addEventListener("timeupdate", () => {
@@ -114,10 +125,40 @@ volumeButton.addEventListener('click', toggleMute)
 window.addEventListener("resize", setTrackMarquee)
 window.addEventListener("load", setTrackMarquee)
 
-if (audio.readyState > 0) {
-    setupPlayer();
-} else {
-    audio.addEventListener('loadedmetadata', () => {
+let setupTrack = (track) => {
+    audio.src = track;
+    if (audio.readyState > 0) {
         setupPlayer();
-    })
+    } else {
+        audio.addEventListener('loadedmetadata', () => {
+            setupPlayer();
+        })
+    }
 }
+
+let lastPlayed = null;
+const musicItems = document.querySelectorAll(".music-item");
+
+musicItems.forEach((item) => {
+    const button = item.querySelector(".music-button");
+
+    if (item.dataset.track === localStorage.getItem("track")) {
+        item.classList.add("playing");
+        setupTrack(item.dataset.track);
+        lastPlayed = item;
+    }
+
+    button.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (item.dataset.track !== localStorage.getItem("track")) {
+            if (lastPlayed) {
+                lastPlayed.classList.remove("playing");
+            }
+            item.classList.add("playing");
+            lastPlayed = item;
+            setupTrack(item.dataset.track);
+            resetAndPlay();
+            localStorage.setItem("track", item.dataset.track);
+        }
+    });
+});
